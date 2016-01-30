@@ -1,6 +1,6 @@
 {
   "name": "hp-manager",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Save the HP(HitPoint) to DB, and management.",
   "main": "index.js",
   "scripts": {
