@@ -47,7 +47,7 @@ In HP management, this module has the following features:
 - Delete user
 
 ### Registered user
-When you first "attack" or "care", registered user.
+When you first "attack" or "care" or "status", registered user.
 
 ### HP changes (addition, subtraction)
 
@@ -61,7 +61,15 @@ If you want to care,
 var hp = hpMana.care(user ,point);
 ```
 
-Argument is a user (string) and in the damage (numeric), and remaining HP of the user is stored in the `hp`.
+If you want to full care,
+```
+var list = hpMana.full_care(user); //full care user
+var list = hpMana.full_care(); //full care all user
+```
+
+Argument is a user (string) and in the damage (numeric).  
+Remaining HP of the user is stored in the `hp`.  
+And `list` is the object that contains name and hp.
 
 ### Get HP of user
 
