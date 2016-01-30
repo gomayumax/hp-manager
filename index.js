@@ -59,7 +59,7 @@ hpManager.prototype.status = function (key){
   if(key === ''){
     return listObj;
   } else{
-    if(listObj[key] !== null){
+    if(listObj[key]){
       var data = {};
       data[key] = listObj[key];
       return data;
