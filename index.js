@@ -10,10 +10,7 @@ var hpManager = function (config){
 hpManager.prototype.attack = function (key,val){
   val = val || initial.attack;
   var hpObj = this.db.get(hpKey) || {};
-  console.log(hpObj[key]);
   hpObj[key] = hpObj[key] || this.max;
-
-  console.log(hpObj);
 
   hpObj[key] = Math.max(hpObj[key] - val, this.min);
   this.db.set(hpKey,hpObj);
