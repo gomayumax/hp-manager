@@ -1,0 +1,22 @@
+{
+  "name": "hp-manager",
+  "version": "0.0.1",
+  "description": "Save the HP to DB, and management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gomayumax/hp-manager.git"
+  },
+  "keywords": [
+    "hubot"
+  ],
+  "author": "goma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gomayumax/hp-manager/issues"
+  },
+  "homepage": "https://github.com/gomayumax/hp-manager#readme"
+}

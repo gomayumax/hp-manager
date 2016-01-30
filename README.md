@@ -1,2 +1,2 @@
-# hitpoint-plugin
+# HP Manager 
 
