@@ -28,6 +28,29 @@ hpManager.prototype.care = function (key,val){
   return hpObj[key];
 };
 
+hpManager.prototype.full_care = function (key){
+  key = key || ''; 
+  var hpObj = this.db.get(this.hpKey) || {};
+  if(key === ''){
+    for(var name in hpObj){
+      hpObj[name] = this.max;
+    }
+    this.db.set(this.hpKey,hpObj);
+
+    return hpObj;
+  } else{
+    hpObj[key] = hpObj[key] || this.max;
+    hpObj[key] = this.max;
+    this.db.set(this.hpKey,hpObj);
+    var data = {};
+    data[key] = hpObj[key];
+
+    return data;
+  }
+
+  return {};
+};
+
 hpManager.prototype.status = function (key){
   var status = new Array();
   key = key || ''; 
