@@ -1,18 +1,18 @@
-# HP Manager 
+# HP Manager
 
-# install
+# Install
 
 ```
 npm install hp-manager
 ```
 
-# load
+# Load
 
 ```
-var hp-manager = require('hp-manager');
+var hpManager = require('hp-manager');
 ```
 
-# Usage 
+# Usage
 ## Setting
 First, the required settings for HP management.
 Setting values are the following four.
@@ -22,14 +22,15 @@ Setting values are the following four.
 - The maximum value of HP
 - The minimum value of HP
 
-In particular, you should be set with care DB information and the location (key) to save HP.
-DB information must be an object that has always the method of `set` and `get`.
+In particular, you should be set with care DB information and the location (key) to save HP. 
+
+DB information must be an object that has always the method of `set` and `get`.  
 The location (key) to save the HP, is a clue for loading HP information to be stored in the table.
 Therefore, do not set the value (key) that overlaps with the value stored in the table in the Location to save HP.
 
 The following is a setting for using the hubot brain (Redis).
 ```
-var hpMane = new hpManager({
+var hpMana = new hpManager({
     db: robot.brain,
     hpKey: 'hpManager',
     max: 100,
@@ -52,26 +53,26 @@ When you first "attack" or "care", registered user.
 
 If you want to attack,
 ```
-var hp = hpMane.attack(user ,damage);
+var hp = hpMana.attack(user ,damage);
 ```
 
 If you want to care,
 ```
-var hp = hpMane.care(user ,point);
+var hp = hpMana.care(user ,point);
 ```
 
 Argument is a user (string) and in the damage (numeric), and remaining HP of the user is stored in the `hp`.
 
 ### Get HP of user
 
-If you get the HP of all users, 
+If you get the HP of all users,
 ```
-var list = hpMane.status();
+var list = hpMana.status();
 ```
 
 If you get the HP of a specific user,
 ```
-var list = hpMane.status(user);
+var list = hpMana.status(user);
 ```
 
 Argument is a `user` (string), and `list` is the object that contains name and hp.
@@ -80,7 +81,7 @@ Argument is a `user` (string), and `list` is the object that contains name and h
 
 To the following,
 ```
-var list = hpMane.delete(user);
+var list = hpMana.delete(user);
 ```
 Argument is a `user` (string), and `list` is the object that contains name and hp.
 
@@ -88,10 +89,10 @@ Argument is a `user` (string), and `list` is the object that contains name and h
 As follows: write the script of Hubot.
 
 ```
-var hp-manager = require('hp-manager');
+var hpManager = require('hp-manager');
 
 module.exports = function(robot) {
-  var hpMane = new hpManager({ db: robot.brain,
+  var hpMana = new hpManager({ db: robot.brain,
       hpKey: 'hpManager',
       max: 100,
       min: 10
@@ -100,7 +101,7 @@ module.exports = function(robot) {
   robot.respond(/attack (\w+)/i, function(msg) {
       var user = msg.match[1];
       var damage = 10;
-      var hp = hpMane.attack(user ,damage);
+      var hp = hpMana.attack(user ,damage);
       msg.send(`Ouch!! ${user} damaged ${damage}！\nHP: ${hp}/${hpMax}`);
       });
 }
