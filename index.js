@@ -32,10 +32,17 @@ hpManager.prototype.status = function (key){
   var status = new Array();
   key = key || ''; 
   var listObj = this.db.get(this.hpKey) || {};
+
   if(key === ''){
     return listObj;
   } else{
     if(listObj[key] !== null){
+      var data = {};
+      data[key] = listObj[key];
+      return data;
+    } else {
+      listObj[key] = this.max;
+      this.db.set(this.hpKey,listObj);
       var data = {};
       data[key] = listObj[key];
       return data;
