@@ -9,21 +9,21 @@ var hpManager = function (config){
 
 hpManager.prototype.attack = function (key,val){
   val = val || initial.attack;
-  var hpObj = this.db.get(hpKey) || {};
+  var hpObj = this.db.get(this.hpKey) || {};
   hpObj[key] = hpObj[key] || this.max;
 
   hpObj[key] = Math.max(hpObj[key] - val, this.min);
-  this.db.set(hpKey,hpObj);
+  this.db.set(this.hpKey,hpObj);
 
   return hpObj[key];
 };
 
 hpManager.prototype.care = function (key,val){
   val = val || initial.care;
-  var hpObj = this.db.get(hpKey) || {};
+  var hpObj = this.db.get(this.hpKey) || {};
   hpObj[key] = hpObj[key] || this.max;
   hpObj[key] = Math.min(hpObj[key] + 10, this.max);
-  this.db.set(hpKey,hpObj);
+  this.db.set(this.hpKey,hpObj);
 
   return hpObj[key];
 };
@@ -31,7 +31,7 @@ hpManager.prototype.care = function (key,val){
 hpManager.prototype.status = function (key){
   var status = new Array();
   key = key || ''; 
-  var listObj = this.db.get(hpKey) || {};
+  var listObj = this.db.get(this.hpKey) || {};
   if(key === ''){
     return listObj;
   } else{
@@ -46,10 +46,10 @@ hpManager.prototype.status = function (key){
 
 hpManager.prototype.delete = function (key){
   key = key || ''; 
-  var listObj = this.db.get(hpKey) || {};
+  var listObj = this.db.get(this.hpKey) || {};
   if(listObj[key]){
     delete listObj[key];
-    this.db.set(hpKey,listObj);
+    this.db.set(this.hpKey,listObj);
   }
   return listObj;
 };
