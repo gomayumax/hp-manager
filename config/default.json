@@ -1,0 +1,7 @@
+{
+  "hpKey": "hpManager",
+  "max": 100,
+  "min": 5,
+  "atatck": 10,
+  "care": 10
+}
