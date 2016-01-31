@@ -7,6 +7,15 @@ var hpManager = function (config){
   this.min = config.min || initial.min;
 };
 
+
+hpManager.prototype.getMax = function (){
+  return this.max;
+};
+
+hpManager.prototype.getMin = function (){
+  return this.min;
+};
+
 hpManager.prototype.attack = function (key,val){
   val = val || initial.attack;
   var hpObj = this.db.get(this.hpKey) || {};
